@@ -1,0 +1,154 @@
+/* Process Section Component */
+
+.process-section {
+  padding: var(--section-padding);
+  background: linear-gradient(180deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
+  position: relative;
+}
+
+.process-section__container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.process-section__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.process-section__title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+}
+
+.process-section__subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.process-section__timeline {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.process-section__step {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(20px);
+  transition: all 0.4s ease;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.process-section__step::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--primary-cyan), transparent);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.process-section__step:hover::before {
+  transform: scaleX(1);
+}
+
+.process-section__step:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-cyan);
+  box-shadow: 0 25px 50px rgba(0, 212, 255, 0.3);
+  background: linear-gradient(135deg, var(--card-bg), rgba(0, 212, 255, 0.05));
+}
+
+.process-section__step-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-cyan);
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--primary-cyan), #0099CC);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.process-section__step-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.process-section__step-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.process-section__step-description {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Create visual connection lines between steps */
+.process-section__timeline::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+  z-index: 0;
+}
+
+/* Tablet Responsive */
+@media (max-width: 992px) {
+  .process-section__timeline {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .process-section__timeline::before {
+    display: none;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .process-section__timeline {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .process-section__title {
+    font-size: 2rem;
+  }
+
+  .process-section__step {
+    min-height: auto;
+  }
+
+  .process-section__step-number {
+    font-size: 2rem;
+  }
+}

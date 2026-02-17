@@ -49,14 +49,14 @@ export function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="text-white text-lg font-semibold mb-4 font-heading">
               Get In Touch
             </h4>
             <div className="space-y-2">
               <a
                 href={`mailto:${contactInfo.email}`}
-                className="block text-white/70 hover:text-accent-cyan transition-colors"
+                className="block text-white/70 hover:text-accent-cyan transition-colors text-sm md:text-base break-all md:break-normal"
               >
                 {contactInfo.email}
               </a>

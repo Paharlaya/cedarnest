@@ -91,7 +91,7 @@ export function ContactSectionAnimated() {
                 </div>
                 <a
                   href={`mailto:${contactInfo.email}`}
-                  className="text-3xl md:text-4xl text-accent-cyan hover:text-accent-blue transition-colors font-semibold inline-block"
+                  className="text-lg sm:text-2xl md:text-4xl text-accent-cyan hover:text-accent-blue transition-colors font-semibold inline-block break-all px-4 sm:px-0"
                 >
                   {contactInfo.email}
                 </a>

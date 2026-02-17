@@ -52,7 +52,7 @@ export function ContactSectionAnimated() {
       <div className="container-custom relative">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-heading">
               Let's Build Your Salesforce Ecosystem
             </h2>
             <p className="text-xl text-white/70 mb-12 text-balance">

@@ -58,7 +58,7 @@ export function Navigation() {
                 priority
               />
             </div>
-            <span className="text-white text-xl font-bold uppercase tracking-wide hidden sm:block">
+            <span className="text-white text-xl font-bold uppercase tracking-wide hidden sm:block font-heading">
               {company.name}
             </span>
           </Link>

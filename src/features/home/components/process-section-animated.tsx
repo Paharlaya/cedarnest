@@ -66,7 +66,7 @@ export function ProcessSectionAnimated() {
 
       <div className="container-custom relative">
         <ScrollReveal className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-heading">
             Our Proven Process
           </h2>
           <p className="text-xl text-white/70 max-w-2xl mx-auto text-balance">
@@ -137,7 +137,7 @@ export function ProcessSectionAnimated() {
                       }}
                     />
                   </motion.div>
-                  <h3 className="text-2xl font-bold text-white group-hover:text-accent-cyan transition-colors">
+                  <h3 className="text-2xl font-bold text-white group-hover:text-accent-cyan transition-colors font-heading">
                     {step.title}
                   </h3>
                 </div>

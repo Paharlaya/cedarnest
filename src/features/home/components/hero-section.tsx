@@ -21,7 +21,7 @@ export function HeroSection() {
       <div className="container-custom relative z-10 pt-20">
         <div className="text-center space-y-6 max-w-5xl mx-auto">
           {/* Title */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight font-heading">
             Digital Transformation &
             <span className="block gradient-text pb-2">Salesforce Integration Experts</span>
           </h1>

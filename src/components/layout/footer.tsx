@@ -23,7 +23,7 @@ export function Footer() {
                   className="object-contain"
                 />
               </div>
-              <h3 className="text-white text-2xl font-bold uppercase tracking-wide">
+              <h3 className="text-white text-2xl font-bold uppercase tracking-wide font-heading">
                 {company.name}
               </h3>
             </div>
@@ -37,7 +37,7 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="text-white text-lg font-semibold mb-4">
+            <h4 className="text-white text-lg font-semibold mb-4 font-heading">
               Services
             </h4>
             <ul className="space-y-2 text-white/70">
@@ -50,7 +50,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-white text-lg font-semibold mb-4">
+            <h4 className="text-white text-lg font-semibold mb-4 font-heading">
               Get In Touch
             </h4>
             <div className="space-y-2">

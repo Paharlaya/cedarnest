@@ -42,6 +42,9 @@ const config: Config = {
         'slide-up': 'slideUp 0.5s ease-out',
         'glow': 'glow 2s ease-in-out infinite',
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
       keyframes: {
         fadeIn: {
           '0%': { opacity: '0' },

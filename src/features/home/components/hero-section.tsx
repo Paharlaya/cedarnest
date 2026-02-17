@@ -18,7 +18,7 @@ const slides = [
  */
 export function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0)
-  const slideInterval = 6000
+  const slideInterval = 10000
 
   // Auto-slide functionality
   useEffect(() => {
@@ -59,7 +59,7 @@ export function HeroSection() {
       </div>
 
       {/* Progress Bar Fixed Within Hero Section */}
-      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-white/10 z-20 overflow-hidden">
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10 z-20 overflow-hidden">
         <motion.div
           className={`relative h-full bg-gradient-to-r ${slides[currentSlide].gradient}`}
           initial={{ width: '0%' }}
@@ -68,15 +68,18 @@ export function HeroSection() {
           key={currentSlide}
         >
           <motion.div
-            className={`absolute inset-0 bg-gradient-to-r ${slides[currentSlide].gradient} blur-sm scale-y-[300%] opacity-60`}
+            className={`absolute inset-0 bg-gradient-to-r ${slides[currentSlide].gradient} blur-md scale-y-[500%] opacity-70`}
           />
           <motion.div
-            className={`absolute right-0 top-1/2 -translate-y-1/2 w-2 h-4 bg-white rounded-full blur-sm shadow-[0_0_10px_currentColor] shadow-accent-cyan`}
+            className={`absolute right-0 top-1/2 -translate-y-1/2 w-3 h-6 bg-white rounded-full blur-md`}
+            style={{
+              boxShadow: '0 0 30px rgba(0, 212, 255, 1), 0 0 60px rgba(0, 212, 255, 0.8), 0 0 90px rgba(0, 212, 255, 0.6)'
+            }}
             animate={{
               boxShadow: [
-                '0 0 10px rgba(0, 212, 255, 0.8)',
-                '0 0 20px rgba(0, 212, 255, 1)',
-                '0 0 10px rgba(0, 212, 255, 0.8)'
+                '0 0 30px rgba(0, 212, 255, 1), 0 0 60px rgba(0, 212, 255, 0.8), 0 0 90px rgba(0, 212, 255, 0.6)',
+                '0 0 40px rgba(0, 212, 255, 1), 0 0 80px rgba(0, 212, 255, 0.9), 0 0 120px rgba(0, 212, 255, 0.7)',
+                '0 0 30px rgba(0, 212, 255, 1), 0 0 60px rgba(0, 212, 255, 0.8), 0 0 90px rgba(0, 212, 255, 0.6)'
               ]
             }}
             transition={{

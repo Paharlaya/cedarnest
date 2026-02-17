@@ -23,16 +23,16 @@ const slides = [
   },
   {
     id: 2,
-    title: 'Salesforce Implementation',
-    subtitle: 'Any Cloud Platform',
-    description: 'Expert Salesforce implementation across Sales Cloud, Service Cloud, Marketing Cloud, and more. We customize and configure Salesforce to perfectly fit your business processes.',
+    title: 'Salesforce Solutions',
+    subtitle: 'Agentforce Experts',
+    description: 'Expert Salesforce and Agentforce implementation across all clouds. We customize and configure solutions to perfectly fit your unique business processes and goals.',
     cta: {
       primary: { text: 'Get Implementation', href: '#contact' },
       secondary: { text: 'View Our Approach', href: '#process' }
     },
     stats: [
-      { value: 'Multi-Cloud', label: 'Expertise' },
-      { value: '15+', label: 'Happy Clients' },
+      { value: '5+ Clouds', label: 'Expertise' },
+      { value: '4+', label: 'Happy Clients' },
       { value: '100%', label: 'On-Time Delivery' }
     ],
     gradient: 'from-purple-500 to-accent-cyan'
@@ -102,11 +102,11 @@ export function HeroCarousel({ autoSlide = true, slideInterval = 6000 }: HeroCar
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -100 }}
           transition={{ duration: 0.5, ease: 'easeInOut' }}
-          className="text-center space-y-6 max-w-5xl mx-auto"
+          className="text-center space-y-6 max-w-5xl mx-auto min-h-[500px] flex flex-col justify-center"
         >
           {/* Title */}
           <motion.h1
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight font-heading px-4 sm:px-0"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight font-heading px-4 sm:px-0 min-h-[120px] sm:min-h-[140px] lg:min-h-[160px] flex flex-col justify-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -119,7 +119,7 @@ export function HeroCarousel({ autoSlide = true, slideInterval = 6000 }: HeroCar
 
           {/* Description */}
           <motion.p
-            className="text-sm sm:text-base md:text-lg text-white/80 max-w-3xl mx-auto text-balance px-4 sm:px-0"
+            className="text-sm sm:text-base md:text-lg text-white/80 max-w-3xl mx-auto text-balance px-4 sm:px-0 min-h-[60px] sm:min-h-[80px] flex items-center justify-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
@@ -173,10 +173,10 @@ export function HeroCarousel({ autoSlide = true, slideInterval = 6000 }: HeroCar
         </motion.div>
       </AnimatePresence>
 
-      {/* Minimal Navigation Arrows - Positioned at extreme edges */}
+      {/* Minimal Navigation Arrows - At extreme edges */}
       <button
         onClick={goToPrevious}
-        className="fixed left-8 md:left-12 lg:left-16 xl:left-24 2xl:left-32 top-1/2 -translate-y-1/2 w-12 h-16 flex items-center justify-center text-white/40 hover:text-accent-cyan transition-all duration-200 group z-30"
+        className="absolute -left-10 md:-left-20 lg:-left-32 xl:-left-40 2xl:-left-48 top-1/2 -translate-y-1/2 w-12 h-16 flex items-center justify-center text-white/40 hover:text-accent-cyan transition-all duration-200 group z-20"
         aria-label="Previous slide"
       >
         <motion.div
@@ -188,7 +188,7 @@ export function HeroCarousel({ autoSlide = true, slideInterval = 6000 }: HeroCar
 
       <button
         onClick={goToNext}
-        className="fixed right-8 md:right-12 lg:right-16 xl:right-24 2xl:right-32 top-1/2 -translate-y-1/2 w-12 h-16 flex items-center justify-center text-white/40 hover:text-accent-cyan transition-all duration-200 group z-30"
+        className="absolute -right-10 md:-right-20 lg:-right-32 xl:-right-40 2xl:-right-48 top-1/2 -translate-y-1/2 w-12 h-16 flex items-center justify-center text-white/40 hover:text-accent-cyan transition-all duration-200 group z-20"
         aria-label="Next slide"
       >
         <motion.div

@@ -22,14 +22,15 @@ export function HeroSection() {
         <div className="text-center space-y-6 max-w-5xl mx-auto">
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-            Salesforce & AI
-            <span className="block gradient-text pb-2">Integration Experts</span>
+            Digital Transformation &
+            <span className="block gradient-text pb-2">Salesforce Integration Experts</span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-base md:text-lg text-white/80 max-w-3xl mx-auto text-balance">
-            Specializing in Sales Cloud, Service Cloud, Experience Cloud, AI Agents, and complex
-            enterprise integrations that drive digital transformations.
+            We build stunning, high-performance websites and implement powerful Salesforce solutions.
+            From custom web development to CRM integration, we deliver end-to-end digital experiences
+            that transform your business.
           </p>
 
           {/* CTA Buttons */}

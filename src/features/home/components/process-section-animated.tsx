@@ -10,16 +10,11 @@ const stepVariants = {
     scale: 0.8,
     x: -30,
   },
-  visible: (i: number) => ({
+  visible: {
     opacity: 1,
     scale: 1,
     x: 0,
-    transition: {
-      delay: i * 0.15,
-      duration: 0.6,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  }),
+  },
 }
 
 const lineVariants = {
@@ -27,18 +22,10 @@ const lineVariants = {
     pathLength: 0,
     opacity: 0,
   },
-  visible: (i: number) => ({
+  visible: {
     pathLength: 1,
     opacity: 1,
-    transition: {
-      pathLength: {
-        delay: i * 0.15 + 0.3,
-        duration: 0.8,
-        ease: "easeInOut",
-      },
-      opacity: { delay: i * 0.15 + 0.3, duration: 0.2 },
-    },
-  }),
+  },
 }
 
 export function ProcessSectionAnimated() {
@@ -91,11 +78,15 @@ export function ProcessSectionAnimated() {
           {processSteps.map((step, index) => (
             <motion.article
               key={step.id}
-              custom={index}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
               variants={stepVariants}
+              transition={{
+                delay: index * 0.15,
+                duration: 0.6,
+                ease: "easeOut",
+              }}
               className="relative group"
             >
               <motion.div
@@ -198,11 +189,14 @@ export function ProcessSectionAnimated() {
                       stroke="url(#grad1)"
                       strokeWidth="2"
                       fill="none"
-                      custom={index}
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true }}
                       variants={lineVariants}
+                      transition={{
+                        delay: index * 0.15 + 0.3,
+                        duration: 0.8,
+                      }}
                       strokeDasharray="5 5"
                     />
                   </svg>

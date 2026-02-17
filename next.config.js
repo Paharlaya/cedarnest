@@ -16,6 +16,9 @@ const nextConfig = {
 
   // Trailing slashes for GitHub Pages compatibility
   trailingSlash: true,
+
+  // Empty turbopack config to avoid warnings
+  turbopack: {},
 }
 
 module.exports = nextConfig

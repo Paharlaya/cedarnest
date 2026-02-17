@@ -36,10 +36,6 @@ const cardVariants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: {
-      duration: 0.6,
-      ease: [0.22, 1, 0.36, 1],
-    },
   },
 }
 
@@ -70,17 +66,16 @@ export function ExpertiseSectionAnimated() {
               whileHover={{
                 scale: 1.03,
                 rotateY: 5,
-                transition: { duration: 0.3, ease: "easeOut" }
               }}
               whileTap={{ scale: 0.98 }}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+              }}
               className={cn(
                 'glass rounded-2xl p-8 transition-all duration-300 cursor-pointer relative group',
                 service.isFeatured && 'ring-2 ring-accent-cyan shadow-2xl shadow-accent-cyan/20'
               )}
-              style={{
-                transformStyle: 'preserve-3d',
-                perspective: '1000px'
-              }}
             >
               {/* Glowing border effect on hover */}
               <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">

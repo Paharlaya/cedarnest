@@ -7,11 +7,11 @@ import type { CompanyInfo, Service, ProcessStep, ContactInfo } from '@/types'
  */
 
 export const company: CompanyInfo = {
-  name: 'Cedar Nest Web Studio',
+  name: 'Cedar Nest',
   tagline: 'Salesforce & AI Integration Experts',
   logo: {
-    src: '/logo.svg',
-    alt: 'Cedar Nest Web Studio',
+    src: '/cedar-nest-logo.png',
+    alt: 'Cedar Nest',
   },
   description: 'Premium Salesforce consulting, AI Agentforce implementation, and enterprise digital transformation.',
 }

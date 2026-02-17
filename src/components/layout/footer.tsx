@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { company, contactInfo } from '@/config/site.config'
 
 /**
@@ -13,9 +14,19 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-white text-xl font-semibold mb-4">
-              {company.name}
-            </h3>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="relative w-10 h-10">
+                <Image
+                  src={company.logo.src}
+                  alt={company.logo.alt}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <h3 className="text-white text-xl font-bold uppercase tracking-wide">
+                {company.name}
+              </h3>
+            </div>
             <p className="text-white/70 mb-4">
               {company.description}
             </p>

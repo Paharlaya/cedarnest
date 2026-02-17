@@ -48,17 +48,17 @@ export function Navigation() {
       <nav className="container-custom py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
-            <div className="relative w-12 h-12">
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative w-14 h-14">
               <Image
                 src={company.logo.src}
                 alt={company.logo.alt}
                 fill
-                className="object-contain"
+                className="object-contain group-hover:scale-105 transition-transform"
                 priority
               />
             </div>
-            <span className="text-white text-xl font-semibold hidden sm:block">
+            <span className="text-white text-xl font-bold uppercase tracking-wide hidden sm:block">
               {company.name}
             </span>
           </Link>

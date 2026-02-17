@@ -12,30 +12,41 @@ export function ContactSectionAnimated() {
     <section id="contact" className="py-20 bg-dark-lighter relative overflow-hidden">
       {/* Animated quantum field background */}
       <div className="absolute inset-0">
-        {[...Array(5)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-96 h-96 rounded-full"
-            style={{
-              background: `radial-gradient(circle, ${i % 2 === 0 ? 'rgba(0, 212, 255, 0.1)' : 'rgba(0, 102, 255, 0.1)'} 0%, transparent 70%)`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.6, 0.3],
-              x: [0, 30, 0],
-              y: [0, -30, 0],
-            }}
-            transition={{
-              duration: 8,
-              delay: i * 1.5,
-              repeat: Infinity,
-              repeatType: "reverse",
-              ease: "easeInOut",
-            }}
-          />
-        ))}
+        {[0, 1, 2, 3, 4].map((i) => {
+          // Fixed positions to avoid hydration mismatch
+          const positions = [
+            { left: '10%', top: '20%' },
+            { left: '70%', top: '10%' },
+            { left: '30%', top: '60%' },
+            { left: '80%', top: '70%' },
+            { left: '50%', top: '40%' },
+          ]
+
+          return (
+            <motion.div
+              key={i}
+              className="absolute w-96 h-96 rounded-full"
+              style={{
+                background: `radial-gradient(circle, ${i % 2 === 0 ? 'rgba(0, 212, 255, 0.1)' : 'rgba(0, 102, 255, 0.1)'} 0%, transparent 70%)`,
+                left: positions[i].left,
+                top: positions[i].top,
+              }}
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.3, 0.6, 0.3],
+                x: [0, 30, 0],
+                y: [0, -30, 0],
+              }}
+              transition={{
+                duration: 8,
+                delay: i * 1.5,
+                repeat: Infinity,
+                repeatType: "reverse",
+                ease: "easeInOut",
+              }}
+            />
+          )
+        })}
       </div>
 
       <div className="container-custom relative">

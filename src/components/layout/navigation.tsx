@@ -48,8 +48,8 @@ export function Navigation() {
       <nav className="container-custom py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-14 h-14">
+          <Link href="/" className="flex items-center gap-4 group">
+            <div className="relative w-16 h-16">
               <Image
                 src={company.logo.src}
                 alt={company.logo.alt}

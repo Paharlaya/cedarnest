@@ -14,8 +14,8 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="relative w-10 h-10">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="relative w-16 h-16">
                 <Image
                   src={company.logo.src}
                   alt={company.logo.alt}
@@ -23,7 +23,7 @@ export function Footer() {
                   className="object-contain"
                 />
               </div>
-              <h3 className="text-white text-xl font-bold uppercase tracking-wide">
+              <h3 className="text-white text-2xl font-bold uppercase tracking-wide">
                 {company.name}
               </h3>
             </div>

@@ -5,22 +5,8 @@ import { contactInfo } from '@/config/site.config'
 import { ScrollReveal, fadeInUp, fadeInScale } from '@/components/animations/scroll-animations'
 import { useState } from 'react'
 
-const letterVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.03,
-      duration: 0.3,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  }),
-}
-
 export function ContactSectionAnimated() {
   const [isHovered, setIsHovered] = useState(false)
-  const emailLetters = contactInfo.email.split('')
 
   return (
     <section id="contact" className="py-20 bg-dark-lighter relative overflow-hidden">
@@ -92,42 +78,12 @@ export function ContactSectionAnimated() {
                   </motion.svg>
                   <span>Email</span>
                 </div>
-                <motion.div
-                  className="inline-block"
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
+                <a
+                  href={`mailto:${contactInfo.email}`}
+                  className="text-3xl md:text-4xl text-accent-cyan hover:text-accent-blue transition-colors font-semibold inline-block"
                 >
-                  <a
-                    href={`mailto:${contactInfo.email}`}
-                    className="text-3xl md:text-4xl font-semibold inline-flex"
-                  >
-                    {emailLetters.map((letter, i) => (
-                      <motion.span
-                        key={i}
-                        custom={i}
-                        initial="hidden"
-                        animate="visible"
-                        variants={letterVariants}
-                        whileHover={{
-                          y: -5,
-                          color: '#00D4FF',
-                          transition: { duration: 0.2 },
-                        }}
-                        className="inline-block hover:text-accent-cyan transition-colors"
-                        style={{
-                          background: isHovered
-                            ? 'linear-gradient(90deg, #00D4FF 0%, #0066FF 100%)'
-                            : 'linear-gradient(90deg, #00D4FF 0%, #00A8E8 100%)',
-                          backgroundClip: 'text',
-                          WebkitBackgroundClip: 'text',
-                          WebkitTextFillColor: 'transparent',
-                        }}
-                      >
-                        {letter}
-                      </motion.span>
-                    ))}
-                  </a>
-                </motion.div>
+                  {contactInfo.email}
+                </a>
               </div>
             </ScrollReveal>
 

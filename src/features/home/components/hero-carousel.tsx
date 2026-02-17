@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 // Removed heroicons import - using custom minimal arrows
 
@@ -56,48 +56,28 @@ const slides = [
 ]
 
 interface HeroCarouselProps {
-  autoSlide?: boolean
-  slideInterval?: number
+  currentSlideIndex: number
+  onSlideChange: (index: number) => void
 }
 
-export function HeroCarousel({ autoSlide = true, slideInterval = 6000 }: HeroCarouselProps) {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [isHovered, setIsHovered] = useState(false)
-
-  // Auto-slide functionality
-  useEffect(() => {
-    if (!autoSlide || isHovered) return
-
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, slideInterval)
-
-    return () => clearInterval(interval)
-  }, [autoSlide, slideInterval, isHovered])
-
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index)
-  }
-
+export function HeroCarousel({ currentSlideIndex, onSlideChange }: HeroCarouselProps) {
   const goToPrevious = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
+    onSlideChange((currentSlideIndex - 1 + slides.length) % slides.length)
   }
 
   const goToNext = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length)
+    onSlideChange((currentSlideIndex + 1) % slides.length)
   }
 
-  const currentSlideData = slides[currentSlide]
+  const currentSlideData = slides[currentSlideIndex]
 
   return (
-    <div
-      className="relative w-full h-full"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <AnimatePresence mode="wait">
+    <>
+      {/* Main Carousel Content */}
+      <div className="relative w-full h-full">
+        <AnimatePresence mode="wait">
         <motion.div
-          key={currentSlide}
+          key={currentSlideIndex}
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -100 }}
@@ -171,10 +151,10 @@ export function HeroCarousel({ autoSlide = true, slideInterval = 6000 }: HeroCar
             ))}
           </motion.div>
         </motion.div>
-      </AnimatePresence>
+        </AnimatePresence>
 
-      {/* Minimal Navigation Arrows - At extreme edges */}
-      <button
+        {/* Minimal Navigation Arrows - At extreme edges */}
+        <button
         onClick={goToPrevious}
         className="absolute -left-10 md:-left-20 lg:-left-32 xl:-left-40 2xl:-left-48 top-1/2 -translate-y-1/2 w-12 h-16 flex items-center justify-center text-white/40 hover:text-accent-cyan transition-all duration-200 group z-20"
         aria-label="Previous slide"
@@ -197,53 +177,8 @@ export function HeroCarousel({ autoSlide = true, slideInterval = 6000 }: HeroCar
           transition={{ type: 'spring', stiffness: 400 }}
         />
       </button>
-
-      {/* Slide Indicators - Moved lower to avoid text overlap */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-3 z-20">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentSlide
-                ? 'bg-accent-cyan scale-125 shadow-lg shadow-accent-cyan/50'
-                : 'bg-white/30 hover:bg-white/50'
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
       </div>
 
-      {/* Lightsaber Progress Bar - Positioned at very bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-white/10 z-20 overflow-hidden">
-        <motion.div
-          className={`relative h-full bg-gradient-to-r ${currentSlideData.gradient}`}
-          initial={{ width: '0%' }}
-          animate={{ width: '100%' }}
-          transition={{ duration: slideInterval / 1000, ease: 'linear' }}
-          key={currentSlide}
-        >
-          {/* Lightsaber glow effect */}
-          <motion.div
-            className={`absolute inset-0 bg-gradient-to-r ${currentSlideData.gradient} blur-sm scale-y-[300%] opacity-60`}
-          />
-          <motion.div
-            className={`absolute right-0 top-1/2 -translate-y-1/2 w-2 h-4 bg-white rounded-full blur-sm shadow-[0_0_10px_currentColor] shadow-accent-cyan`}
-            animate={{
-              boxShadow: [
-                '0 0 10px rgba(0, 212, 255, 0.8)',
-                '0 0 20px rgba(0, 212, 255, 1)',
-                '0 0 10px rgba(0, 212, 255, 0.8)'
-              ]
-            }}
-            transition={{
-              duration: 1,
-              repeat: Infinity,
-              ease: 'easeInOut'
-            }}
-          />
-        </motion.div>
-      </div>
-    </div>
+    </>
   )
 }
